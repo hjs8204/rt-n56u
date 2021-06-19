@@ -1,18 +1,18 @@
 SRC_NAME = htop-3.0.2
-SRC_URL = https://github.com/hjs8204/rt-n56u/blob/master/trunk/user/htop/htop-3.0.2.tar.gz
+SRC_URL = https://github.com/hjs8204/rt-n56u/blob/master/trunk/user/htop/htop-3.0.2.tar
 THISDIR = $(shell pwd)
 
 all: download_test extract_test config_test
 	$(MAKE) -j$(HOST_NCPU) -C $(SRC_NAME)
 
 download_test:
-	( if [ ! -f $(SRC_NAME).tar.gz ]; then \
-		wget -t5 --timeout=20 --no-check-certificate -O $(SRC_NAME).tar.gz $(SRC_URL); \
+	( if [ ! -f $(SRC_NAME).tar ]; then \
+		wget -t5 --timeout=20 --no-check-certificate -O $(SRC_NAME).tar $(SRC_URL); \
 	fi )
 
 extract_test:
 	( if [ ! -d $(SRC_NAME) ]; then \
-		tar zxf $(SRC_NAME).tar.gz; \
+		tar zxf $(SRC_NAME).tar; \
 	fi )
 
 config_test:
